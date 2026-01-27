@@ -30,4 +30,6 @@ Features are fused using ProjectedTransformerFusion, incorporating learnable Can
 Survival Prediction:
 
 The fused representation is passed to a prediction head optimized via Cox Proportional Hazards Loss.
-[模型架构.pdf](https://github.com/user-attachments/files/24872871/default.pdf)
+<img width="2500" height="1406" alt="幻灯片1" src="https://github.com/user-attachments/assets/90348bd7-2dc2-415f-960d-f2ad8ec4d737" />
+<img width="2500" height="1406" alt="幻灯片1" src="https://github.com/user-attachments/assets/047e2da9-b875-4ed5-a4a6-65a3a6a0bac1" />
+
