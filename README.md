@@ -1,1 +1,33 @@
-<img width="416" height="234" alt="image" src="https://github.com/user-attachments/assets/28f5636d-178a-4968-a445-25857be63595" />Multi-omics data provide a wealth of resources for prognostic prediction, but integrating them into computational models to simultaneously capture molecular heterogeneity and common biological principles remains a challenge. Most existing methods are limited to single-cancer modeling or fail to integrate the topology of molecular networks. This paper introduces a novel pan-cancer framework, MOGAT, which integrates stacked denoising autoencoders and graph neural networks (GNNs) within a Transformer architecture. Unlike other mainstream models that model each cancer separately, MOGAT can robustly predict the survival of patients with multiple cancers using a single model. MOGAT innovatively utilizes static protein-protein interaction networks to guide feature extraction, thereby preserving key biological topologies often lost in standard deep learning methods. By employing a global attention mechanism with cancer type awareness, MOGAT effectively learns the "common language" of survival risk across different malignancies. Extensive analysis of 5830 patients covering 18 cancer types shows that MOGAT's risk stratification significantly outperforms standard Cox proportional hazards models and advanced multi-omics models such as FGCNSurv and SLCGF. The model demonstrates exceptional robustness, exhibiting extremely high predictive accuracy in both independent breast cancer (METABRIC) and glioma (CGGA) cohorts, and successfully achieving zero-sample transfer to the leukemia dataset. Pan-cancer analysis shows that MOGAT prioritizes immune-related pathways (such as T-cell receptor signaling pathways) and specific biomarkers such as HOXA5 and UPK2, thereby linking calculated risk scores to clinically relevant tumor microenvironment status. MOGAT provides a scalable and highly accurate tool for clinical decision-making and biomarker discovery.<img width="432" height="317" alt="image" src="https://github.com/user-attachments/assets/b5677f36-ce65-4e52-9ab7-f6698594753a" />
+MOGAT: A Multi-Omics Graph-Attention Transformer for Pan-Cancer Survival Prediction
+MOGAT is a novel deep learning framework designed for pan-cancer survival prediction and biomarker discovery. By integrating Stacked Denoising Autoencoders (SDAE), Graph Attention Networks (GAT), and Transformer architectures, MOGAT effectively captures both the molecular heterogeneity and common biological principles across different cancer types within a single unified model.
+
+Paper: MOGAT: A Multi-Omics Graph-Attention Transformer for Pan-Cancer Survival Prediction and Biomarker Discovery
+
+🚀 Key Features
+Multi-Omics Integration: Seamlessly integrates mRNA expression, miRNA expression, and Proteomics (RPPA) data.
+
+Graph Attention Mechanism: Utilizes GAT (Graph Attention Network) with Global Attention Pooling to extract topological features from static Protein-Protein Interaction (PPI) networks.
+
+Transformer Fusion: Employs a Transformer Encoder to capture long-range dependencies and interactions between different omics modalities.
+
+Pan-Cancer Modeling: Innovative use of Cancer Embeddings allows a single model to robustly predict survival outcomes across 18+ cancer types (e.g., LUAD, STAD, BRCA).
+
+Rigorous Validation (Zero-Leakage): Implements a strict "Zero-Leakage" data processing protocol where imputation, scaling, and feature selection are fitted solely on the training set to ensure reproducibility and validity.
+
+🛠️ System Architecture
+The MOGAT framework consists of three main modules:
+
+Feature Encoders:
+
+mRNA & miRNA: Processed via AutoPower2AE (Stacked Denoising Autoencoder) for dimensionality reduction and robust feature extraction.
+
+Protein: Mapped onto a PPI network (STRING database) and processed via DynamicGNN (Multi-head GAT + Attention Pooling).
+
+Multi-Modal Fusion:
+
+Features are fused using ProjectedTransformerFusion, incorporating learnable Cancer Embeddings to distinguish specific cancer patterns.
+
+Survival Prediction:
+
+The fused representation is passed to a prediction head optimized via Cox Proportional Hazards Loss.
+[模型架构.pdf](https://github.com/user-attachments/files/24872871/default.pdf)
