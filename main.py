@@ -2,12 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-DMFF Pan-Cancer Framework (Advanced Optimized Protocol)
-------------------------------------------------------------
-修改点：
-1) ✅ Grid Search for TOP_K_OMICS: [500, 1000, 2000]
-2) ✅ Expanded Search Space: Added 512 dim for AE and GNN
-3) ✅ Stability: Added Linear Warmup + Cosine Scheduler & Gradient Clipping
+MOGAT
 """
 
 import os
