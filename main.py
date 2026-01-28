@@ -58,12 +58,6 @@ SEARCH_SPACE = {
     'GNN_DIM': [512],  # 新增 512
     'GNN_LAYERS': [3]
 }
-# SEARCH_SPACE = {
-#     'TOP_K': [1000],  # 新增特征数量搜索
-#     'AE_DIM': [512],  # 新增 512，移除较弱的 64
-#     'GNN_DIM': [512],  # 新增 512
-#     'GNN_LAYERS': [3]
-# }
 
 # === 依赖引入 ===
 try:
@@ -74,7 +68,7 @@ try:
         select_features_inside_fold
     )
 except ImportError:
-    raise ImportError("❌ Critical Error: 'allRISK2.py' not found in current directory.")
+    raise ImportError("❌ Critical Error: 'utils' not found in current directory.")
 
 
 # ========================= 2. 复现性工具 =========================
